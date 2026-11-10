@@ -1,0 +1,10 @@
+classDiagram
+    class RegraDeAlvo {
+        <<abstract>>
+        +escolher(Ponto posicaoDaTorre, List~Inimigo~ candidatos)* Inimigo
+        +getNome()* String
+    }
+    RegraDeAlvo <|-- MaisProximo
+    RegraDeAlvo <|-- MaisForte
+    RegraDeAlvo <|-- MaisAvancado
+    Torre o-- RegraDeAlvo : regraDeAlvo

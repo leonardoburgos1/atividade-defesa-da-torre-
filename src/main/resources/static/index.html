@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Defesa da Torre</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script type="importmap">
+        { "imports": { "three": "./js/vendor/three.module.js" } }
+    </script>
+</head>
+<body>
+<div id="cena"></div>
+<div id="rotulos"></div>
+
+<header class="placar">
+    <h1>Defesa da Torre</h1>
+    <div class="numeros">
+        <div><span class="rotulo">Vidas</span><strong id="vidas">20</strong></div>
+        <div><span class="rotulo">Abatidos</span><strong id="abatidos">0</strong></div>
+        <div><span class="rotulo">Onda</span><strong id="onda">0/5</strong></div>
+        <div><span class="rotulo">Tick</span><strong id="tick">0</strong></div>
+    </div>
+</header>
+
+<aside class="torres" id="torres">
+    <h2>Torres</h2>
+    <!-- preenchido pelo jogo.js -->
+</aside>
+
+<nav class="controles">
+    <button id="btnJogar" class="principal">Começar</button>
+    <div class="velocidades" role="group" aria-label="Velocidade">
+        <button data-vel="1" class="ativo">1×</button>
+        <button data-vel="2">2×</button>
+        <button data-vel="4">4×</button>
+    </div>
+    <button id="btnReiniciar">Reiniciar</button>
+</nav>
+
+<div class="fim escondido" id="fim">
+    <div class="cartao">
+        <h2 id="fimTitulo">Partida encerrada</h2>
+        <p id="fimTexto"></p>
+        <p class="dica">Anote esse resultado. Depois de refatorar, escolha as mesmas regras antes de começar e não troque no meio: o resultado tem que se repetir.</p>
+        <button id="btnDeNovo" class="principal">Jogar de novo</button>
+    </div>
+</div>
+
+<div class="erro escondido" id="erro">Não consegui falar com o servidor. A aplicação Spring está rodando?</div>
+
+<script type="module" src="js/jogo.js"></script>
+</body>
+</html>

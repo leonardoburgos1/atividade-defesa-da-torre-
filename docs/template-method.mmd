@@ -1,0 +1,11 @@
+classDiagram
+    class Torre {
+        <<abstract>>
+        +final agir(List~Inimigo~ inimigos) void
+        #disparar(Inimigo alvo, List~Inimigo~ inimigos)* void
+        #tempoDeRecarga()* int
+        +getTipo()* String
+    }
+    Torre <|-- Canhao
+    Torre <|-- TorreDeGelo
+    Torre <|-- Laser

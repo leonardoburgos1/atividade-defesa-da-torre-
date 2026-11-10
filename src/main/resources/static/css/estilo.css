@@ -1,0 +1,160 @@
+:root {
+    --papel: #f3ead8;
+    --tinta: #2b2620;
+    --tinta-suave: #6e6457;
+    --borda: #2b2620;
+    --canhao: #c8553d;
+    --gelo: #4f9dc9;
+    --laser: #8a4fbf;
+    --perigo: #b8332a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #9fb38a;
+    font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--tinta);
+}
+
+#cena { position: fixed; inset: 0; }
+#cena canvas { display: block; }
+
+#rotulos { position: fixed; inset: 0; pointer-events: none; }
+.rotulo-torre {
+    position: absolute;
+    transform: translate(-50%, 0);
+    background: var(--papel);
+    border: 2px solid var(--borda);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.placar, .torres, .controles, .cartao {
+    background: var(--papel);
+    border: 2px solid var(--borda);
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 rgba(43, 38, 32, .85);
+}
+
+.placar {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.placar h1 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+.numeros { display: flex; gap: 18px; }
+.numeros div { display: flex; flex-direction: column; min-width: 56px; }
+.numeros strong { font-size: 22px; font-variant-numeric: tabular-nums; }
+.rotulo {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--tinta-suave);
+}
+.numeros .alerta { color: var(--perigo); }
+
+.torres {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 250px;
+    padding: 12px 14px;
+}
+.torres h2 { margin: 0 0 8px; font-size: 15px; }
+.torre-cartao {
+    border-top: 1px dashed var(--tinta-suave);
+    padding: 10px 0 8px;
+}
+.torre-cartao .nome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.torre-cartao .bolinha {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--borda);
+}
+.torre-cartao label { font-size: 12px; color: var(--tinta-suave); display: block; margin-bottom: 3px; }
+.torre-cartao select {
+    width: 100%;
+    font: inherit;
+    font-size: 14px;
+    padding: 4px 6px;
+    border: 2px solid var(--borda);
+    border-radius: 4px;
+    background: #fffaf0;
+}
+
+.controles {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+button {
+    font: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 7px 14px;
+    border: 2px solid var(--borda);
+    border-radius: 4px;
+    background: #fffaf0;
+    color: var(--tinta);
+    cursor: pointer;
+}
+button:active { transform: translate(1px, 1px); }
+button.principal { background: var(--tinta); color: var(--papel); min-width: 110px; }
+.velocidades { display: flex; }
+.velocidades button { border-radius: 0; margin-left: -2px; }
+.velocidades button:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
+.velocidades button:last-child { border-radius: 0 4px 4px 0; }
+.velocidades button.ativo { background: #e2cfa6; }
+
+.fim {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(43, 38, 32, .35);
+}
+.cartao { padding: 20px 24px; max-width: 380px; text-align: center; }
+.cartao h2 { margin: 0 0 8px; }
+.cartao p { margin: 0 0 12px; font-size: 18px; }
+.cartao .dica { font-size: 13px; color: var(--tinta-suave); }
+
+.erro {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--perigo);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.escondido { display: none !important; }
